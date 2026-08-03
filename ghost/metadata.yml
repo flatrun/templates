@@ -1,0 +1,15 @@
+name: Ghost
+description: Professional publishing platform
+icon: pi pi-book
+logo: https://cdn.simpleicons.org/ghost
+category: application
+priority: 70
+container_port: 2368
+mounts:
+  - id: content
+    name: Content
+    container_path: /var/lib/ghost/content
+    description: Ghost content, themes, and images
+    type: file
+    required: true
+    user: "1000:1000"

@@ -1,0 +1,29 @@
+name: MinIO
+description: S3-compatible object storage you host yourself
+icon: pi pi-database
+logo: https://cdn.simpleicons.org/minio
+category: storage
+object_store:
+  access_key_env: MINIO_ROOT_USER
+  secret_key_env: MINIO_ROOT_PASSWORD
+  api_port: 9000
+  region: us-east-1
+  use_path_style: true
+priority: 68
+container_port: 9000
+mounts:
+  - id: data
+    name: Data
+    container_path: /data
+    description: Buckets and objects
+    type: file
+    required: true
+env:
+  file: .env
+  template: |
+    MINIO_ROOT_USER=flatrun
+    MINIO_ROOT_PASSWORD=
+  secrets:
+    - key: MINIO_ROOT_PASSWORD
+      encoding: alphanumeric
+      bytes: 24

@@ -1,0 +1,26 @@
+name: ${NAME}
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: ${NAME}
+    environment:
+      WORDPRESS_DB_HOST: ${DB_HOST:-db}
+      WORDPRESS_DB_USER: ${DB_USERNAME:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-changeme}
+      WORDPRESS_DB_NAME: ${DB_DATABASE:-wordpress}
+      WORDPRESS_CONFIG_EXTRA: |
+        /* Handle HTTPS behind reverse proxy */
+        if (isset($$_SERVER['HTTP_X_FORWARDED_PROTO']) && $$_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+            $$_SERVER['HTTPS'] = 'on';
+        }
+    volumes:
+      - ./data:/var/www/html
+    expose:
+      - "80"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true

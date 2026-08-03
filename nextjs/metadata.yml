@@ -1,0 +1,14 @@
+name: Next.js
+description: React framework for production
+icon: pi pi-globe
+logo: https://cdn.simpleicons.org/nextdotjs
+category: framework
+priority: 60
+container_port: 3000
+mounts:
+  - id: app
+    name: Application
+    container_path: /app
+    description: Next.js application source code
+    type: file
+    required: true

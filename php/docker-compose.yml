@@ -1,0 +1,14 @@
+name: ${NAME}
+services:
+  app:
+    image: php:8.3-apache
+    container_name: ${NAME}
+    expose:
+      - "80"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true

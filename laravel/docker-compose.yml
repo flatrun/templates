@@ -1,0 +1,14 @@
+name: ${NAME}
+services:
+  app:
+    image: bitnami/laravel:latest
+    container_name: ${NAME}
+    expose:
+      - "8000"
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
