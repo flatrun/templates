@@ -65,7 +65,7 @@ templates:
 |-------|---------|
 | `name`, `description` | Display name and summary |
 | `icon` | UI icon, a PrimeIcons class (e.g. `pi pi-globe`) |
-| `logo` | Brand logo, a [Simple Icons](https://simpleicons.org) CDN URL (`https://cdn.simpleicons.org/<slug>`) |
+| `logo` | Brand logo URL; any URL works, [Simple Icons](https://simpleicons.org) (`https://cdn.simpleicons.org/<slug>`) preferred |
 | `category` | Grouping: `application`, `framework`, `runtime`, `database`, `storage`, `basic` |
 | `priority` | Sort order in the catalog (higher first) |
 | `container_port` | Port the app listens on behind the proxy |
