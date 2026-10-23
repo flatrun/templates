@@ -20,6 +20,11 @@ env:
       encoding: alphanumeric
       bytes: 48
 backup:
+  container_paths:
+    - service: memgraph
+      container_path: /var/lib/memgraph-data
+      description: Code graph and agent memory
+      required: true
   databases:
     - service: db
       type: postgres
