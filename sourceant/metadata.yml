@@ -1,0 +1,28 @@
+name: SourceAnt
+description: AI pull request review and persistent memory for coding agents
+icon: pi pi-code
+logo: logo.svg
+category: application
+priority: 50
+container_port: 8000
+env:
+  file: .env.flatrun
+  template: |
+    LLM_MODEL=gemini/gemini-2.5-flash
+    GEMINI_API_KEY=
+    DB_PASSWORD=
+    JWT_SECRET=
+  secrets:
+    - key: DB_PASSWORD
+      encoding: alphanumeric
+      bytes: 24
+    - key: JWT_SECRET
+      encoding: alphanumeric
+      bytes: 48
+backup:
+  databases:
+    - service: db
+      type: postgres
+      user_env: POSTGRES_USER
+      password_env: POSTGRES_PASSWORD
+      database_env: POSTGRES_DB
