@@ -1,6 +1,6 @@
 name: WordPress
 description: Popular content management system
-logo: logo.svg
+logo: https://cdn.simpleicons.org/wordpress
 category: application
 priority: 100
 container_port: 80

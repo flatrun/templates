@@ -1,6 +1,6 @@
 name: PHP
 description: PHP with Apache web server
-logo: logo.svg
+logo: https://cdn.simpleicons.org/php
 category: runtime
 priority: 30
 container_port: 80

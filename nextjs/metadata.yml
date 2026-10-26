@@ -1,6 +1,6 @@
 name: Next.js
 description: React framework for production
-logo: logo.svg
+logo: https://cdn.simpleicons.org/nextdotjs
 category: framework
 priority: 60
 container_port: 3000

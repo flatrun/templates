@@ -1,6 +1,6 @@
 name: Nextcloud
 description: Self-hosted productivity platform
-logo: logo.svg
+logo: https://cdn.simpleicons.org/nextcloud
 category: application
 priority: 85
 container_port: 80

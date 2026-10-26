@@ -1,6 +1,6 @@
 name: MinIO
 description: S3-compatible object storage you host yourself
-logo: logo.svg
+logo: https://cdn.simpleicons.org/minio
 category: storage
 object_store:
   access_key_env: MINIO_ROOT_USER

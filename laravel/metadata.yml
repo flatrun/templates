@@ -1,6 +1,6 @@
 name: Laravel
 description: PHP framework for web artisans
-logo: logo.svg
+logo: https://cdn.simpleicons.org/laravel
 category: framework
 priority: 80
 container_port: 8000

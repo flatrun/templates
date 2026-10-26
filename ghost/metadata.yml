@@ -1,6 +1,6 @@
 name: Ghost
 description: Professional publishing platform
-logo: logo.svg
+logo: https://cdn.simpleicons.org/ghost
 category: application
 priority: 70
 container_port: 2368
