@@ -1,0 +1,58 @@
+name: ${NAME}
+services:
+  agent:
+    image: ghcr.io/sourceant/sourceant:latest
+    container_name: ${NAME}
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql://sourceant:${DB_PASSWORD}@db:5432/sourceant
+      LLM_MODEL: ${LLM_MODEL}
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      JWT_SECRET: ${JWT_SECRET}
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
+      QUEUE_MODE: redis
+      LOG_DRIVER: console
+    expose:
+      - "8000"
+    networks:
+      - default
+      - proxy
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    restart: unless-stopped
+  db:
+    image: postgres:17-alpine
+    container_name: ${NAME}-db
+    environment:
+      POSTGRES_DB: sourceant
+      POSTGRES_USER: sourceant
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "sourceant"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    restart: unless-stopped
+  redis:
+    image: redis:7.2
+    container_name: ${NAME}-redis
+    volumes:
+      - ./data/redis:/data
+    restart: unless-stopped
+  memgraph:
+    image: memgraph/memgraph:3.11.0
+    container_name: ${NAME}-memgraph
+    command: ["--data-directory=/var/lib/memgraph-data/db"]
+    volumes:
+      - ./data/memgraph:/var/lib/memgraph-data
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true

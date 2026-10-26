@@ -1,6 +1,5 @@
 name: Next.js
 description: React framework for production
-icon: pi pi-globe
 logo: https://cdn.simpleicons.org/nextdotjs
 category: framework
 priority: 60

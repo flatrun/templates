@@ -1,0 +1,44 @@
+name: Trakli
+description: Personal finance tracker for wallets, transactions and budgets
+logo: logo.svg
+category: application
+priority: 50
+container_port: 80
+mounts:
+  - id: storage
+    name: Storage
+    container_path: /var/www/html/storage
+    description: Logs, cache and uploaded files
+    type: file
+    required: true
+    seed: true
+env:
+  file: .env.flatrun
+  template: |
+    APP_URL=http://localhost
+    APP_KEY=
+    DB_PASSWORD=
+    DB_ROOT_PASSWORD=
+  secrets:
+    - key: APP_KEY
+      prefix: "base64:"
+      encoding: base64
+      bytes: 32
+    - key: DB_PASSWORD
+      encoding: alphanumeric
+      bytes: 24
+    - key: DB_ROOT_PASSWORD
+      encoding: alphanumeric
+      bytes: 24
+backup:
+  container_paths:
+    - service: app
+      container_path: /var/www/html/storage
+      description: Logs, cache and uploaded files
+      required: true
+  databases:
+    - service: mysql
+      type: mysql
+      user_env: MYSQL_USER
+      password_env: MYSQL_PASSWORD
+      database_env: MYSQL_DATABASE

@@ -1,6 +1,5 @@
 name: PHP
 description: PHP with Apache web server
-icon: pi pi-code
 logo: https://cdn.simpleicons.org/php
 category: runtime
 priority: 30

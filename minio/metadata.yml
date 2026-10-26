@@ -1,6 +1,5 @@
 name: MinIO
 description: S3-compatible object storage you host yourself
-icon: pi pi-database
 logo: https://cdn.simpleicons.org/minio
 category: storage
 object_store:

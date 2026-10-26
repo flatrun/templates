@@ -17,6 +17,8 @@ directory here is one deployable app that FlatRun turns into a running deploymen
 | Astro | `astro` | framework | The web framework for content-driven websites |
 | Node.js | `node` | runtime | JavaScript runtime for web applications |
 | PHP | `php` | runtime | PHP with Apache web server |
+| Trakli | `trakli` | application | Personal finance tracker for wallets, transactions and budgets |
+| SourceAnt | `sourceant` | application | AI pull request review and persistent memory for coding agents |
 
 ## Layout
 
@@ -26,6 +28,7 @@ One directory per template, at the repository root. The directory name is the te
 <template-id>/
   docker-compose.yml   # required
   metadata.yml         # optional but recommended
+  logo.svg             # optional, when metadata.yml names it as the logo
 ```
 
 A directory is treated as a template only if it contains a `docker-compose.yml`.
@@ -64,8 +67,7 @@ templates:
 | Field | Purpose |
 |-------|---------|
 | `name`, `description` | Display name and summary |
-| `icon` | UI icon, a PrimeIcons class (e.g. `pi pi-globe`) |
-| `logo` | Brand logo URL; any URL works, [Simple Icons](https://simpleicons.org) (`https://cdn.simpleicons.org/<slug>`) preferred |
+| `logo` | Brand logo, in one of three forms: an icon id (`logos:postgresql`, `lucide:wallet`), a link to an image (Simple Icons has most apps at `https://cdn.simpleicons.org/<slug>`), or a PNG, WebP or SVG file in the template's directory (`logo.svg`), at most 512 KB. A link needs internet to show. A file, or an icon from a set the dashboard bundles, shows without it. A project created from the template gets a copy. |
 | `category` | Grouping: `application`, `framework`, `runtime`, `database`, `storage`, `basic` |
 | `priority` | Sort order in the catalog (higher first) |
 | `container_port` | Port the app listens on behind the proxy |

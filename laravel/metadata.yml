@@ -1,6 +1,5 @@
 name: Laravel
 description: PHP framework for web artisans
-icon: pi pi-code
 logo: https://cdn.simpleicons.org/laravel
 category: framework
 priority: 80

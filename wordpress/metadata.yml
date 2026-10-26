@@ -1,6 +1,5 @@
 name: WordPress
 description: Popular content management system
-icon: pi pi-globe
 logo: https://cdn.simpleicons.org/wordpress
 category: application
 priority: 100
