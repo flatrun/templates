@@ -1,6 +1,5 @@
 name: Trakli
 description: Personal finance tracker for wallets, transactions and budgets
-icon: pi pi-wallet
 logo: logo.svg
 category: application
 priority: 50

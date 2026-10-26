@@ -1,6 +1,5 @@
 name: SourceAnt
 description: AI pull request review and persistent memory for coding agents
-icon: pi pi-code
 logo: logo.svg
 category: application
 priority: 50

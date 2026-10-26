@@ -28,7 +28,7 @@ One directory per template, at the repository root. The directory name is the te
 <template-id>/
   docker-compose.yml   # required
   metadata.yml         # optional but recommended
-  logo.svg             # optional, when metadata.yml names it as the logo
+  logo.svg             # the logo metadata.yml names
 ```
 
 A directory is treated as a template only if it contains a `docker-compose.yml`.
@@ -67,8 +67,7 @@ templates:
 | Field | Purpose |
 |-------|---------|
 | `name`, `description` | Display name and summary |
-| `icon` | UI icon, a PrimeIcons class (e.g. `pi pi-globe`) |
-| `logo` | Brand logo: a URL, with [Simple Icons](https://simpleicons.org) (`https://cdn.simpleicons.org/<slug>`) preferred, or the name of a PNG, WebP or SVG file in the template's directory (`logo.svg`) for an app Simple Icons does not carry. Projects created from the template show it. |
+| `logo` | Brand logo: the name of a PNG, WebP or SVG file in the template's directory (`logo.svg`), at most 512 KB. A file keeps the catalog working on servers without internet, and CI rejects links. [Simple Icons](https://simpleicons.org) (CC0) is a good source. A project created from the template gets a copy. |
 | `category` | Grouping: `application`, `framework`, `runtime`, `database`, `storage`, `basic` |
 | `priority` | Sort order in the catalog (higher first) |
 | `container_port` | Port the app listens on behind the proxy |
