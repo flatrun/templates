@@ -6,8 +6,12 @@ for compose in */docker-compose.yml; do
   logo=$(sed -n 's/^logo:[[:space:]]*//p' "$dir/metadata.yml" 2>/dev/null | tr -d "\"'")
   case "$logo" in
     "") echo "$dir: metadata.yml names no logo"; status=1; continue ;;
-    https://*) ;;
-    *:* | /* | *..*) echo "$dir: logo \"$logo\" must be an https link or a file in the template's directory"; status=1; continue ;;
+    http://?* | https://?*) ;;
+    *:*)
+      if [[ ! $logo =~ ^[a-z0-9]+(-[a-z0-9]+)*:[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+        echo "$dir: logo \"$logo\" must be an icon id such as logos:postgresql, a link, or a file"; status=1
+      fi ;;
+    /* | *..*) echo "$dir: logo \"$logo\" must be a file in the template's directory"; status=1; continue ;;
     *.svg | *.png | *.webp)
       if [ ! -f "$dir/$logo" ]; then
         echo "$dir: $logo is missing"; status=1

@@ -67,7 +67,7 @@ templates:
 | Field | Purpose |
 |-------|---------|
 | `name`, `description` | Display name and summary |
-| `logo` | Brand logo: a [Simple Icons](https://simpleicons.org) link (`https://cdn.simpleicons.org/<slug>`), or the name of a PNG, WebP or SVG file in the template's directory (`logo.svg`), at most 512 KB, for an app Simple Icons does not carry. A project created from the template gets a copy. |
+| `logo` | Brand logo, in one of three forms: an icon id (`logos:postgresql`, `lucide:wallet`), a link to an image (Simple Icons has most apps at `https://cdn.simpleicons.org/<slug>`), or a PNG, WebP or SVG file in the template's directory (`logo.svg`), at most 512 KB. A link needs internet to show. A file, or an icon from a set the dashboard bundles, shows without it. A project created from the template gets a copy. |
 | `category` | Grouping: `application`, `framework`, `runtime`, `database`, `storage`, `basic` |
 | `priority` | Sort order in the catalog (higher first) |
 | `container_port` | Port the app listens on behind the proxy |
