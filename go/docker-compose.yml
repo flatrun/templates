@@ -1,0 +1,15 @@
+name: ${NAME}
+services:
+  web:
+    image: golang:1.25
+    container_name: ${NAME}
+    working_dir: /workspace
+    command: /workspace/server
+    expose:
+      - "8080"
+    networks:
+      - proxy
+    restart: unless-stopped
+networks:
+  proxy:
+    external: true

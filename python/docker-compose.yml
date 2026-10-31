@@ -1,0 +1,15 @@
+name: ${NAME}
+services:
+  web:
+    image: python:3.13-slim
+    container_name: ${NAME}
+    working_dir: /workspace
+    command: python main.py
+    expose:
+      - "8000"
+    networks:
+      - proxy
+    restart: unless-stopped
+networks:
+  proxy:
+    external: true
